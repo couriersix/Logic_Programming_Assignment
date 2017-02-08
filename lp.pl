@@ -29,13 +29,13 @@ sum-up-numbers-general([Head|Tail], X):- /*same as 1*/
 
 /*4*/
 
-common-unique-elements([] ,_, []).
+common-unique-elements([] ,_, []). /*defines function, passing in L1 and L2 and N*/
 common-unique-elements([Head|L1], L2, [Head|L3]):-
-	member(L2, Head),!, common-unique-elements(L1, L2, L3).
+	member(L2, Head),!, common-unique-elements(L1, L2, L3). /*check if item is a member of list, then recurses main function without returning to front of the list*/
 
-common-unique-elements([_|L1], L2, L3):-
-	common-unique-elements(L1, L2, L3).
+common-unique-elements([_|L1], L2, L3):- /*compare the two lists to the third for like values*/
+	common-unique-elements(L1, L2, L3). /*recursion*/
 
-member([Head|_], Head).
+member([Head|_], Head). /*defines function that checks if the value is a member of the new list*/
 member([_|Tail], Head):-
-		member(Tail, Head).
+		member(Tail, Head). /*calls member (recurses) for the rest of the list*/
