@@ -14,13 +14,13 @@ sum-up-numbers-general([],0).
 sum-up-numbers-general([[]],0).
 sum-up-numbers-general([Head|Tail, X]):-
 	number(Head),
-	number([Head|Tail]),
+	atom([Head|Tail, X]),
 	sum-up-numbers-general(Tail, Sums),
 	X is Head + Sums.
 
-sum-up-numbers-general([Head|Tail], X):-
-	\+number(Head;Tail),
-	sum-up-numbers-general(Tail, X).
+/* sum-up-numbers-general([Head|Tail], X):- */
+/*	\+number(Head;Tail), */
+/*	sum-up-numbers-general(Tail, X). */
 
 
 
