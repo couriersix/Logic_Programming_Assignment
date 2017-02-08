@@ -32,7 +32,10 @@ sum-up-numbers-general([Head|Tail], X):- /*same as 1*/
 common-unique-elements([L1], [L2], N).
 common-unique-elements([L1], [L2], N):-
 	member(L2, X),!, common-unique-elements([L1], [L2], [L3]).
+
 common-unique-elements([L1], [L2], [L3]):-
 	common-unique-elements([L1], [L2], [L3]).
 
-	
+	member([Head|Tail], X).
+	member([Head|Tail, X]):-
+		member(Tail, X).
