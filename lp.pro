@@ -1,6 +1,7 @@
-sum-up-numbers-simple(L, N).
-sum-up-numbers-simple([L, N | Tail], Total) :-
-	sum-up-numbers-simple([L + N | Tail]).
+sum-up-numbers-simple([], 0).
+sum-up-numbers-simple([Head|Tail], Value) :-
+	number(Head),
+	sum-up-numbers-simple([L + Value | Tail]).
 
 
 
