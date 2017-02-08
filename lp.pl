@@ -10,20 +10,20 @@ sum-up-numbers-simple([Head|Tail], X):-
 	sum-up-numbers-simple(Tail, X). /*the list iterates to the next value*/
 
 /*2*/
-sum-up-numbers-general([],0).
-sum-up-numbers-general([[]],0).
-sum-up-numbers-general([Head|Tail, X]):-
+sum-up-numbers-general([],0). /*defining functions*/
+sum-up-numbers-general([[]],0). /*define function for nested list case*/
+sum-up-numbers-general([Head|Tail, X]):- /*same as 1*/
 	number(Head),
 	sum-up-numbers-general(Tail, Sums),
 	X is Head + Sums.
 
 sum-up-numbers-general([Head|Tail], X):-
-	atom(Head|Tail),
-	sum-up-numbers-general(Tail, Sums).
+	atom(Head), /*checks if value is a list, and recurses if true*/
+	sum-up-numbers-general(Tail, X).
 
-/* sum-up-numbers-general([Head|Tail], X):- */
-/*	\+number(Head;Tail), */
-/*	sum-up-numbers-general(Tail, X). */
+sum-up-numbers-general([Head|Tail], X):- /*same as 1*/
+	sum-up-numbers-general(Tail, Sums),
+	X is Head + Sums.
 
 
 
