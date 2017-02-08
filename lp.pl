@@ -27,3 +27,7 @@ sum-up-numbers-general([Head|Tail], X):- /*same as 1*/
 
 
 
+/*4*/
+
+common-unique-elements([L1], [L2], N).
+common-unique-elements([L1], [L2], N):-
